@@ -1,3 +1,23 @@
+# UW NOTE: how to deploy new version of this fork
+
+Commands are run in the /src directory.
+
+1. build the Go binary- command might be different for different systems and architectures, in UW ThinkPad with Linux it looks like:
+```bash
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build .
+```
+
+2. build the image
+```bash
+docker build . -t registry.uw.systems/dev-enablement/opslevel:newVersionTag
+```
+
+3. Push the image 
+```bash
+docker push registry.uw.systems/dev-enablement/opslevel:newVersionTag
+```
+
+
 <p align="center">
     <a href="https://github.com/OpsLevel/kubectl-opslevel/blob/main/LICENSE" alt="License">
         <img src="https://img.shields.io/github/license/OpsLevel/kubectl-opslevel.svg" /></a>
