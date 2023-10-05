@@ -65,7 +65,7 @@ func setupSignalHandler() <-chan struct{} {
 
 func (c *KubernetesController) getLength() int {
 	current := c.queue.Len()
-	if current < c.maxBatch {
+	if current < c.maxBatch && current > 0 {
 		return current
 	} else {
 		return c.maxBatch
