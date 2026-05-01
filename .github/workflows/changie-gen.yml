@@ -21,14 +21,14 @@ jobs:
     steps:
 
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@v2
+      uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
       with:
         egress-policy: audit
 
     - name: Create and commit changelog on bot PR
       if: ${{ contains(github.event.pull_request.labels.*.name, matrix.label) }}
       id: bot_changelog
-      uses: emmyoop/changie_bot@v1.1.0
+      uses: emmyoop/changie_bot@22b70618b13d0d1c64ea95212bafca2d2bf6b764 # v1.1.0
       with:
         GITHUB_TOKEN: ${{ secrets.ORG_GITHUB_TOKEN }}
         commit_author_name: "Github Build Bot"
